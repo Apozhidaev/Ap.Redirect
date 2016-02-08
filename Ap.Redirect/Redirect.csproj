@@ -7,8 +7,8 @@
     <ProjectGuid>{FD17DEAE-9AA7-41FB-9C39-87FD2B02D7AA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ap.Redirect</RootNamespace>
-    <AssemblyName>Ap.Redirect</AssemblyName>
+    <RootNamespace>Redirect</RootNamespace>
+    <AssemblyName>Redirect</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
