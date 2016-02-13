@@ -40,10 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContentProcessor.cs" />
+    <Compile Include="CookieProcessor.cs" />
+    <Compile Include="HttpListenerRequestExtensions.cs" />
+    <Compile Include="HttpListenerResponseExtensions.cs" />
     <Compile Include="HttpRedirect.cs" />
-    <Compile Include="ProcessRequestEventArgs.cs" />
+    <Compile Include="IContentProcessor.cs" />
+    <Compile Include="ICookieProcessor.cs" />
+    <Compile Include="IUrlProcessor.cs" />
+    <Compile Include="ProcessExceptionEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RedirectSettings.cs" />
+    <Compile Include="RegexExtensions.cs" />
+    <Compile Include="UrlProcessor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

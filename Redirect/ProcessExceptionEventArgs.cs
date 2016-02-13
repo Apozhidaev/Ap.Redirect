@@ -2,9 +2,9 @@
 
 namespace Redirect
 {
-    public class ProcessRequestEventArgs : EventArgs
+    public class ProcessExceptionEventArgs : EventArgs
     {
-        public ProcessRequestEventArgs(Exception exception)
+        public ProcessExceptionEventArgs(Exception exception)
         {
             Exception = exception;
         }

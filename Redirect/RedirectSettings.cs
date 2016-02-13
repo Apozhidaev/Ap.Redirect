@@ -1,13 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Text.RegularExpressions;
-
-namespace Redirect
+﻿namespace Redirect
 {
     public class RedirectSettings
     {
-        public string[] Froms { get; set; }
-        public string To { get; set; }
-        public Dictionary<Regex, string> QueryRules { get; set; }
-        public Dictionary<string, Dictionary<Regex, string>> ContentRules { get; set; }
+        public string[] Urls { get; set; }
+        public IUrlProcessor UrlProcessor { get; set; }
+        public ICookieProcessor CookieProcessor { get; set; }
+        public IContentProcessor ResponseContentProcessor { get; set; }
     }
 }
