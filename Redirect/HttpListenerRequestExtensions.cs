@@ -23,27 +23,30 @@ namespace Redirect
         {
             var message = new HttpRequestMessage();
 
+            if (request.ContentLength64 > 0)
+            {
+                message.Content = new StreamContent(request.InputStream);
+                if (!string.IsNullOrEmpty(request.ContentType))
+                {
+                    message.Content.Headers.ContentType = MediaTypeHeaderValue.Parse(request.ContentType);
+                }
+            }
+
             foreach (var headerName in request.Headers.AllKeys.Where(header => !Filter.Contains(header)))
             {
                 var headerValues = request.Headers.GetValues(headerName);
                 if (!message.Headers.TryAddWithoutValidation(headerName, headerValues))
                 {
-                    message.Content.Headers.TryAddWithoutValidation(headerName, headerValues);
+                    message.Content?.Headers.TryAddWithoutValidation(headerName, headerValues);
                 }
             }
+
             message.Method = new HttpMethod(request.HttpMethod);
             message.RequestUri = url;
-            if (request.ContentLength64 > 0)
-            {
-                message.Content = new StreamContent(request.InputStream);
-            }
             message.Headers.Host = url.Host;
-            if (!string.IsNullOrEmpty(request.ContentType))
-            {
-                message.Content.Headers.ContentType = MediaTypeHeaderValue.Parse(request.ContentType);
-            }
             message.Headers.ConnectionClose = true;
             message.Headers.AcceptEncoding.Clear();
+
             return message;
         }
     }
