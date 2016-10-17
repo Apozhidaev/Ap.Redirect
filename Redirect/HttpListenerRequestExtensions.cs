@@ -40,7 +40,7 @@ namespace Redirect
             message.Headers.Host = url.Host;
             if (!string.IsNullOrEmpty(request.ContentType))
             {
-                message.Content.Headers.ContentType = new MediaTypeHeaderValue(request.ContentType);
+                message.Content.Headers.ContentType = MediaTypeHeaderValue.Parse(request.ContentType);
             }
             message.Headers.ConnectionClose = true;
             message.Headers.AcceptEncoding.Clear();
